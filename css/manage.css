@@ -1,0 +1,27 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.status-paid {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.status-unpaid {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 5px;
+    border-radius: 5px;
+}

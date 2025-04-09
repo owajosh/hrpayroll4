@@ -1,0 +1,335 @@
+:root {
+    --primary-color: #3a86ff;
+    --primary-hover: #2876f9;
+    --success-color: #38b000;
+    --success-hover: #2b9348;
+    --danger-color: #ff595e;
+    --danger-hover: #e63946;
+    --background: #f8f9fa;
+    --text-color: #212529;
+    --text-secondary: #495057;
+    --border-color: #dee2e6;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.25s ease;
+  }
+  
+  /* Apply Poppins font globally */
+  * {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Table Container Styling */
+  .container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    max-width: 1200px;
+  }
+  
+  /* Heading Styling */
+  h2 {
+    color: var(--text-color);
+    font-weight: 700;
+    position: relative;
+    font-size: 2rem;
+    margin-bottom: 2rem !important;
+  }
+  
+  h2:after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+  
+  /* "Add Employee" Button */
+  .btn-success {
+    background: var(--success-color);
+    border: none;
+    border-radius: 50px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(56, 176, 0, 0.2);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .btn-success:hover {
+    background: var(--success-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(56, 176, 0, 0.3);
+  }
+  
+  .add-employee-btn:before {
+    content: "+";
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-right: 5px;
+  }
+  
+  /* Table Styling */
+  .table-responsive {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-top: 1.5rem;
+  }
+  
+  .table {
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+  }
+  
+  .table th {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.8px;
+    padding: 1.2rem 1rem;
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    text-align: center;
+  }
+  
+  .table td {
+    padding: 1rem;
+    vertical-align: middle;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .table tbody tr {
+    transition: var(--transition);
+  }
+  
+  .table tbody tr:hover {
+    background-color: rgba(58, 134, 255, 0.05);
+    transform: scale(1.005);
+  }
+  
+  /* Action Buttons Styling */
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .btn-action {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border: none;
+    color: white;
+  }
+  
+  .btn-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-action.edit {
+    background-color: var(--primary-color);
+  }
+  
+  .btn-action.edit:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 5px 12px rgba(58, 134, 255, 0.3);
+  }
+  
+  .btn-action.delete {
+    background-color: var(--danger-color);
+  }
+  
+  .btn-action.delete:hover {
+    background-color: var(--danger-hover);
+    box-shadow: 0 5px 12px rgba(255, 89, 94, 0.3);
+  }
+  
+  /* Icon sizing */
+  .btn-action i {
+    font-size: 0.9rem;
+  }
+  
+  /* SweetAlert Customization */
+  .swal2-popup {
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .swal2-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+  
+  .swal2-html-container {
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+  
+  .swal2-confirm, .swal2-cancel {
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    padding: 0.6rem 1.5rem !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+  
+  /* Zebra striping for better readability */
+  .table tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.01);
+  }
+  
+  /* Highlight specific data columns */
+  .table td:nth-child(2) {
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+  
+  /* Department styling */
+  .table td:nth-child(6) {
+    font-weight: 500;
+  }
+  
+  /* Position styling */
+  .table td:nth-child(5) {
+    font-style: italic;
+  }
+  
+  /* Badge styling for departments */
+  .badge-department {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: #e9ecef;
+  }
+  
+  .badge-department.marketing {
+    background-color: #ffead0;
+    color: #ff9500;
+  }
+  
+  .badge-department.it {
+    background-color: #d0f0fd;
+    color: #0ea5e9;
+  }
+  
+  .badge-department.hr {
+    background-color: #ffd0f0;
+    color: #d946ef;
+  }
+  
+  .badge-department.finance {
+    background-color: #d0ffda;
+    color: #22c55e;
+  }
+  
+  /* Employee ID styling */
+  .employee-id {
+    font-family: 'Poppins', monospace;
+    font-weight: 600;
+    background-color: #f1f5f9;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  
+  /* Email styling */
+  .email {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  /* Empty state styling */
+  .empty-state {
+    padding: 3rem;
+    text-align: center;
+  }
+  
+  .empty-state i {
+    font-size: 3rem;
+    color: #cbd5e1;
+    margin-bottom: 1rem;
+  }
+  
+  .empty-state h4 {
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .empty-state p {
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .container {
+      padding: 1.5rem;
+    }
+    
+    h2 {
+      font-size: 1.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .table th, .table td {
+      padding: 0.8rem 0.5rem;
+      font-size: 0.85rem;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .container {
+      padding: 1rem;
+    }
+    
+    h2 {
+      font-size: 1.25rem;
+    }
+    
+    .table-responsive {
+      border-radius: 8px;
+    }
+    
+    .btn-action {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  

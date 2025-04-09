@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css?v=<?php echo time(); ?>">
+    <title>HR Payroll Dashboard</title>
+    <style>
+        #mainContent {
+            margin-left: 250px; 
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+            min-height: 100vh;
+            background-color: #f4f6f9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Include -->
+    <?php include 'admin_sidebar.php'; ?>
+
+  <div class="container-fluid">
+        <div id="mainContent">
+        <div class="dashboard-header">
+            <div class="welcome-section">
+                <h1>Welcome back, John</h1>
+                <p>Here's what's happening with your payroll today</p>
+            </div>
+        </div>
+        
+        <!-- Metrics Overview -->
+        <div class="metrics-container">
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-title">EMPLOYEES</div>
+                    <div class="metric-icon bg-blue">👥</div>
+                </div>
+                <div class="metric-value">248</div>
+                <div class="metric-change">+12 this month</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-title">CURRENT PAYROLL</div>
+                    <div class="metric-icon bg-green">💰</div>
+                </div>
+                <div class="metric-value">₱483,250</div>
+                <div class="metric-change">+5.2% from last month</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-title">PENDING APPROVALS</div>
+                    <div class="metric-icon bg-orange">✅</div>
+                </div>
+                <div class="metric-value">16</div>
+                <div class="metric-change negative">+8 since yesterday</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-title">ON LEAVE TODAY</div>
+                    <div class="metric-icon bg-purple">🏖️</div>
+                </div>
+                <div class="metric-value">12</div>
+                <div class="metric-change">4% of workforce</div>
+            </div>
+        </div>
+        
+        <!-- Charts Section -->
+        <div class="charts-container">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">Payroll Expenses by Department</div>
+                    <div class="chart-actions">
+                        <select>
+                            <option>This Month</option>
+                            <option>Last Month</option>
+                            <option>Last Quarter</option>
+                            <option>Year to Date</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-content">
+                    <!-- Payroll Expenses Chart -->
+                    <canvas id="payrollChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">Employee Distribution</div>
+                    <div class="chart-actions">
+                        <select>
+                            <option>By Department</option>
+                            <option>By Position</option>
+                            <option>By Employment Type</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-content">
+                    <!-- Employee Distribution Chart -->
+                    <canvas id="employeeChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            // Payroll Expenses Chart
+            var payrollCtx = document.getElementById('payrollChart').getContext('2d');
+            var payrollChart = new Chart(payrollCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['HR', 'Finance', 'Marketing', 'IT'], // Example department names
+                    datasets: [{
+                        label: 'Payroll Expenses',
+                        data: [50000, 70000, 40000, 60000], // Example payroll expenses for each department
+                        backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Employee Distribution Chart (example with dummy data)
+            var employeeCtx = document.getElementById('employeeChart').getContext('2d');
+            var employeeChart = new Chart(employeeCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['HR', 'Finance', 'Marketing', 'IT'], // Example departments
+                    datasets: [{
+                        label: 'Employee Distribution',
+                        data: [25, 35, 20, 20], // Example employee distribution data for each department
+                        backgroundColor: ['#3498db', '#2ecc71', '#f1c40f', '#e74c3c'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        </script>
+
+        <script>
+            // Simple JavaScript for interactivity
+            document.addEventListener('DOMContentLoaded', function() {
+                // Task completion toggle
+                const taskStatuses = document.querySelectorAll('.task-status');
+                
+                taskStatuses.forEach(status => {
+                    status.addEventListener('click', function() {
+                        this.classList.toggle('completed');
+                        const taskName = this.nextElementSibling;
+                        taskName.classList.toggle('completed');
+                    });
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

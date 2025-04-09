@@ -1,0 +1,215 @@
+/* Main styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Admin layout */
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 25px;
+    margin-left: 250px; /* Match sidebar width */
+}
+
+/* Typography */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eaeaea;
+    font-size: 28px;
+}
+
+h2 {
+    color: #3498db;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+h3 {
+    color: #2c3e50;
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+    font-weight: 600;
+    border: 1px solid #2980b9;
+}
+
+td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f7fb;
+}
+
+tr:hover {
+    background-color: #e8f4fc;
+}
+
+/* Department-specific styles */
+.profit-positive {
+    color: #27ae60;
+}
+
+.profit-negative {
+    color: #e74c3c;
+}
+
+.total-row {
+    background-color: #f2f2f2;
+    font-weight: 500;
+}
+
+.profit-row {
+    background-color: #e8f4fc;
+    font-weight: 500;
+}
+
+/* Summary table */
+.summary-table th {
+    background-color: #2c3e50;
+    border: 1px solid #233140;
+}
+
+/* Export buttons */
+.export-buttons {
+    margin: 20px 0;
+}
+
+.export-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.export-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 8px 10px;
+    }
+}
+
+/* Print styles */
+@media print {
+    /* Hide sidebar when printing */
+    .admin-sidebar, 
+    #admin-sidebar, 
+    .sidebar, 
+    #sidebar {
+        display: none !important;
+    }
+    
+    /* Reset main content margin */
+    .main-content {
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Hide print button */
+    .export-buttons {
+        display: none !important;
+    }
+    
+    /* Ensure tables break properly across pages */
+    table {
+        page-break-inside: auto;
+        box-shadow: none;
+    }
+    
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    
+    /* Improve table appearance in print */
+    th {
+        background-color: #f2f2f2 !important;
+        color: #000 !important;
+        border: 1px solid #999 !important;
+    }
+    
+    /* Keep profit colors in print */
+    .profit-positive {
+        color: #27ae60 !important;
+    }
+    
+    .profit-negative {
+        color: #e74c3c !important;
+    }
+    
+    /* Improve page breaks */
+    h2, h3 {
+        page-break-before: auto;
+        page-break-after: avoid;
+    }
+    
+    /* Format for cleaner printing */
+    body {
+        background-color: white;
+        font-size: 12pt;
+    }
+    
+    /* Remove background colors except for important rows */
+    tr:nth-child(even) {
+        background-color: transparent;
+    }
+    
+    .total-row {
+        background-color: #f2f2f2 !important;
+    }
+    
+    .profit-row {
+        background-color: #e8f4fc !important;
+    }
+}

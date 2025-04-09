@@ -1,0 +1,58 @@
+<head>
+<link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/admin_sidebar.css?v=<?php echo time(); ?>">
+</head>
+
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+      <h3>NextFleet Dynamics</h3>
+      <button class="toggle-sidebar" id="toggleSidebar">
+          <i class="bx bx-menu"></i>
+      </button>
+  </div>
+  <a href="admindashboard.php"><i class="bx bx-home"></i> <span>Dashboard</span></a>
+  <a href="manage_employees.php"><i class="bx bx-user"></i> <span>Employees</span></a>
+  <a href="attendance_calendar.php"><i class="bx bx-calendar-check"></i><span>Attendance</span></a>
+  <a href="manage_payroll.php"><i class="bx bx-money"></i> <span>Manage Payroll</span></a> 
+  <a href="analytics.php"><i class="bx bx-bar-chart"></i> <span>Analytics</span></a>
+  
+  <!-- Reports Section with Submenu -->
+  <div class="sidebar-submenu">
+    <a href="#" class="submenu-toggle">
+        <i class="bx bx-file"></i> <span>Reports</span>
+        <i class="bx bx-chevron-down submenu-icon"></i>
+    </a>
+    <div class="submenu">
+        <a href="payroll_summary_report.php"><li>Payroll Summary</li></a>
+        <a href="departmental_cost_report.php"><li>Departmental Cost</li></a>
+        <a href="tax_report.php"><li>Tax Report</li></a>
+        <a href="benefits_report.php"><li>Benefits Report</li></a>
+    </div>
+  </div>
+
+  <!-- Tanggalin mo itong 'S' na nakalagay dito kung di talaga kailangan -->
+  <!-- S -->
+
+  <a href="../logout.php" class="logout"><i class="bx bx-log-out"></i> <span>Logout</span></a>
+</div>
+
+<script>
+  // Toggle Sidebar
+  document.getElementById("toggleSidebar").addEventListener("click", function() {
+      document.getElementById("sidebar").classList.toggle("collapsed");
+      document.getElementById("mainContent").classList.toggle("expanded");
+  });
+  
+  // Toggle Submenu
+  const submenuToggle = document.querySelector(".submenu-toggle");
+  const submenu = document.querySelector(".submenu");
+
+  submenuToggle.addEventListener("click", function(e) {
+      e.preventDefault();
+      submenu.classList.toggle("active");
+      const submenuIcon = document.querySelector(".submenu-icon");
+      submenuIcon.classList.toggle("bx-chevron-up");
+      submenuIcon.classList.toggle("bx-chevron-down");
+  });
+</script>

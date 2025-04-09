@@ -1,0 +1,385 @@
+/* Elegant Payslip System CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    padding: 30px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 35px;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eaedf2;
+}
+
+.header h1 {
+    font-size: 26px;
+    color: #2c3e50;
+    font-weight: 600;
+    position: relative;
+    padding-left: 16px;
+}
+
+.header h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 24px;
+    background: linear-gradient(to bottom, #3a7bd5, #00d2ff);
+    border-radius: 3px;
+}
+
+.back-btn {
+    color: #5e6c84;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background-color: #f7f9fb;
+}
+
+.back-btn:before {
+    content: "←";
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.back-btn:hover {
+    background-color: #edf2f7;
+    color: #3a7bd5;
+}
+
+.employee-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.info-item {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.info-item label {
+    font-weight: 500;
+    display: inline-block;
+    width: 140px;
+    color: #64748b;
+    font-size: 15px;
+}
+
+.info-item span {
+    color: #334155;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #eaedf2;
+    margin: 30px 0;
+}
+
+.earnings-deductions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e2e8f0;
+    color: #334155;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 15px;
+}
+
+th {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.total-row {
+    font-weight: 600;
+    border-top: 1px solid #e2e8f0;
+    color: #334155;
+}
+
+.amount {
+    text-align: right;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f8fafc;
+    padding: 20px 25px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.summary-item {
+    margin-bottom: 0;
+}
+
+.summary-item label {
+    font-weight: 500;
+    display: inline-block;
+    width: auto;
+    color: #64748b;
+    margin-right: 15px;
+}
+
+.summary-item:last-child label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.summary-item:last-child span {
+    font-weight: 700;
+    color: #3a7bd5;
+    font-size: 18px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #eaedf2;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin-left: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-delete {
+    background-color: #fff5f5;
+    color: #e53e3e;
+    border: 1px solid #fed7d7;
+}
+
+.btn-delete:hover {
+    background-color: #fed7d7;
+}
+
+.btn-print {
+    background-color: #ebf5ff;
+    color: #3182ce;
+    border: 1px solid #bee3f8;
+}
+
+.btn-print:hover {
+    background-color: #bee3f8;
+}
+
+/* Form Styling */
+.form-container {
+    margin-top: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #4a5568;
+    font-size: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    color: #2d3748;
+    background-color: #fff;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #90cdf4;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+.form-control::placeholder {
+    color: #a0aec0;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+#generateBtn {
+    background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#generateBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+#generateBtn:active {
+    transform: translateY(1px);
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+    
+    .container {
+        box-shadow: none;
+        padding: 20px;
+        max-width: 100%;
+    }
+    
+    .container::before {
+        display: none;
+    }
+    
+    .divider, th, .section-title {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .container {
+        padding: 25px 20px;
+    }
+    
+    .employee-info,
+    .earnings-deductions {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .info-item {
+        flex-direction: column;
+    }
+    
+    .info-item label {
+        margin-bottom: 5px;
+        width: 100%;
+    }
+    
+    .summary {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .actions {
+        justify-content: space-between;
+    }
+    
+    .btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Mono&display=swap');

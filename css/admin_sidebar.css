@@ -1,0 +1,216 @@
+/* New Admin Sidebar CSS */
+
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Main sidebar styling */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #0660f1; /* Bright blue */
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar header styling */
+.sidebar-header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0550d1; /* Slightly darker blue */
+    border-bottom: 1px solid rgba(9, 92, 247, 0.966);
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+}
+
+/* Toggle button styling */
+.toggle-sidebar {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Navigation links styling */
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.sidebar a:hover {
+    background-color: #1a72ff; /* Lighter blue on hover */
+    border-left: 3px solid white;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    min-width: 25px;
+    text-align: center;
+}
+
+/* Submenu styling */
+.sidebar-submenu {
+    position: relative;
+}
+
+.submenu-toggle {
+    cursor: pointer;
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    background-color: #0550d1; /* Slightly darker blue */
+}
+
+.submenu.active {
+    display: block;
+}
+
+.submenu a {
+    padding: 10px 15px 10px 35px;
+}
+
+.submenu a li {
+    list-style: none;
+}
+
+.submenu-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+/* Collapsed sidebar states */
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar.collapsed .sidebar-header h3,
+.sidebar.collapsed a span,
+.sidebar.collapsed .submenu-icon {
+    display: none;
+}
+
+.sidebar.collapsed a {
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.sidebar.collapsed a i {
+    margin-right: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar.collapsed .submenu {
+    position: absolute;
+    left: 60px;
+    top: 0;
+    width: 180px;
+    z-index: 1001;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.collapsed .submenu.active {
+    display: none;
+}
+
+.sidebar.collapsed:hover .submenu.active {
+    display: block;
+}
+
+/* Logout link styling */
+.logout {
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 15px;
+}
+
+/* Responsive design for mobile devices */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+    
+    .sidebar .sidebar-header h3,
+    .sidebar a span,
+    .sidebar .submenu-icon {
+        display: none;
+    }
+    
+    .sidebar a {
+        justify-content: center;
+        padding: 15px 0;
+    }
+    
+    .sidebar a i {
+        margin-right: 0;
+        font-size: 1.5rem;
+    }
+    
+    #mainContent {
+        margin-left: 60px;
+    }
+    
+    .sidebar:hover {
+        width: 250px;
+    }
+    
+    .sidebar:hover .sidebar-header h3,
+    .sidebar:hover a span,
+    .sidebar:hover .submenu-icon {
+        display: block;
+    }
+    
+    .sidebar:hover a {
+        justify-content: flex-start;
+        padding: 12px 15px;
+    }
+    
+    .sidebar:hover a i {
+        margin-right: 10px;
+        font-size: 1.2rem;
+    }
+}
+
+/* New Table Container for responsiveness */
+.table-container {
+    width: 90%;
+    margin: 20px auto;
+    overflow-x: auto;
+}
